@@ -201,6 +201,7 @@
 	    <div class="ui-body ui-body-d">
 		<h3>Results</h3>
                 <h4>BSA: <span id="bsa"></span></h4>
+                <h4>QRSDU Z: <span id="qrsdu-z"></span></h4>
 
 	    </div>
 	</div>
@@ -209,7 +210,7 @@
 	<div class="ui-block-c">
 	    <div class="ui-body ui-body-d">
 		<h4>Info</h4>
-		<p>info...</p>
+		<p>A Z-score of 2 or more is considered abnormal.</p>
 	    </div>
 	</div>
     
@@ -231,7 +232,7 @@
     
 
     function calcAll(){
-        var ht, wt, bsa;
+        var ht, wt, gender, bsa, qrsdu, qrsduz;
         ht = parseFloat($('#ht').val());
         wt = parseFloat($('#wt').val());
 
@@ -242,6 +243,10 @@
         } else {
             $('#bsa').text('---');
         }
+        //qrsdu
+        qrsdu = parseFloat($('#qrsdu').val())
+        qrsduz = 
+        
         
     }
 </script>

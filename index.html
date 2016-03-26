@@ -250,9 +250,9 @@
         if( !isNaN(bsa) && !isNaN(qrsdu) ){
 	        qrsduz = gender * -3.19 + bsa * 13.82 + 60.18; //mean
 	        qrsduz += ( qrsdu - qrsduz ) / 6.55;
-	        $('#qrsduz').text(qrsduz.toFixed(2));
+	        $('#qrsdu-z').text(qrsduz.toFixed(2));
         } else {
-        	$('#qrsduz').text('---');
+        	$('#qrsdu-z').text('---');
         }
         
         

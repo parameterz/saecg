@@ -158,9 +158,9 @@
     		    <div class="input-row">
 		    <fieldset data-role="controlgroup" data-type="horizontal">
 		        <legend>Gender:</legend>
-		        <input type="radio" name="gender" id="m" value="m" checked="checked">
+		        <input type="radio" name="gender" id="m" value="0" checked="checked">
 		        <label for="m">Male</label>
-		        <input type="radio" name="gender" id="f" value="off">
+		        <input type="radio" name="gender" id="f" value="1">
 		        <label for="f">Female</label>
 		    </fieldset>
 		    </div>
@@ -235,6 +235,9 @@
         var ht, wt, gender, bsa, qrsdu, qrsduz;
         ht = parseFloat($('#ht').val());
         wt = parseFloat($('#wt').val());
+        gender = $('gender').val();
+        qrsdu = parseFloat($('#qrsdu').val())
+
 
         //calc bsa
         if( !isNaN(ht) && !isNaN(wt) ){
@@ -244,11 +247,19 @@
             $('#bsa').text('---');
         }
         //qrsdu
-        qrsdu = parseFloat($('#qrsdu').val())
-        qrsduz = 
+        if( !isNaN(bsa) && !isNaN(qrsdu) ){
+	        qrsduz = gender * -3.19 + bsa * 13.82 + 60.18; //mean
+	        qrsduz += ( qrsdu - qrsduz ) / 6.55;
+	        $('#qrsduz').text(qrsduz.toFixed(2));
+        } else {
+        	$('#qrsduz').text('---');
+        }
         
         
-    }
+        
+        
+        
+    }//end fx
 </script>
 <script type="text/javascript">
 	$( document ).delegate("#cpmPage", "pageinit", function() {

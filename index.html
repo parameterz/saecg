@@ -153,7 +153,7 @@
 	<div class="ui-block-a">
 	    <div class="ui-body ui-body-d">
 		<h2>Inputs</h2>
-		<p class="small advice">Use the same measurement unit for all measures.</p>
+		<p class="small advice">(important info about measurement input)</p>
 		<form method="get" action="/">
     		    <div class="input-row">
 		    <fieldset data-role="controlgroup" data-type="horizontal">
@@ -199,9 +199,8 @@
 	<!-- secondary block #1 -->
 	<div class="ui-block-b">
 	    <div class="ui-body ui-body-d">
-		<h4>Output</h4>
-                <h3>Results?</h3>
-                
+		<h3>Results</h3>
+                <h4>BSA: <span id="bsa"></span></h4>
 
 	    </div>
 	</div>
@@ -230,33 +229,20 @@
     //updated on
     var updatedOn = '25 Mar 2016';
     
-    function makeInterpretation(val){
-        if(val<0){
-            $('#interpretation').text('');
-        }
-        if(val>0 && val <= 0.15){
-            $('#interpretation').text('(Low)');
-        }
-        if(val>0.15 && val <=0.6){
-            $('#interpretation').text('(Moderate)');
-        }
-        if(val>0.6){
-            $('#interpretation').text('(High)');
-        }
-    }
+
     function calcAll(){
-        var ca, dt, ca_sc, isthmus, dao, ratio1, ratio2, ratio3, probability;
-        ca = parseFloat($('#ca').val());
-        dt = parseFloat($('#dt').val());
+        var ht, wt, bsa;
+        ht = parseFloat($('#ht').val());
+        wt = parseFloat($('#wt').val());
         ca_sc = parseFloat($('#ca_sc').val());
         isthmus = parseFloat($('#isthmus').val());
         dao = parseFloat($('#dao').val());
         //do the ratioes
-        if( !isNaN(ca) && !isNaN(dt) ){
-            ratio1 = ca/dt;
-            $('#ca_dt').text(ratio1.toFixed(3));
+        if( !isNaN(ht) && !isNaN(wt) ){
+            bsa = math.sqrt(ht*wt/3600);
+            $('#bsa').text(bsa.toFixed(3));
         } else {
-            $('#ca_dt').text('---');
+            $('#bsa').text('---');
         }
         if( !isNaN(dt) && !isNaN(ca_sc) ){
             ratio2 = dt/ca_sc;

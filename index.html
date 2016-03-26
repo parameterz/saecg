@@ -156,24 +156,32 @@
 		<p class="small advice">Use the same measurement unit for all measures.</p>
 		<form method="get" action="/">
 		    <div class="input-row">
-			<label for="ca">Carotid Artery:</label>
-			<input type="number" name="ca" id="ca" class="cpmInput" min="0" step="0.01" title='numbers only, up to two decimal places' />
+			<label for="ht">Height (cm):</label>
+			<input type="number" name="ht" id="ht" class="cpmInput" min="0" step="0.01" title='numbers only, up to two decimal places' />
 		    </div>
 		    <div class="input-row">
-			<label for="dt">Distal Transverse Aorta:</label>
-			<input type="number" name="dt" id="dt" class="cpmInput" min="0" step="0.01" title='numbers only, up to two decimal places' />
+			<label for="wt">Weight (kg):</label>
+			<input type="number" name="wt" id="wt" class="cpmInput" min="0" step="0.01" title='numbers only, up to two decimal places' />
 		    </div>
 		    <div class="input-row">
-			<label for="ca_sc">Carotid Artery to Subclavian:</label>
+			<label for="qrsdu">QRSDU:</label>
 			<input type="number" name="ca_sc" id="ca_sc" class="cpmInput" min="0" step="0.01" title='numbers only, up to two decimal places' />
 		    </div>
 		    <div class="input-row">
 			<label for="isthmus">Isthmus:</label>
-			<input type="number" name="isthmus" id="isthmus" class="cpmInput" min="0" step="0.01" title='numbers only, up to two decimal places' />
+			<input type="number" name="qrsdu" id="qrsdu" class="cpmInput" min="0" step="0.01" title='numbers only, up to two decimal places' />
 		    </div>
 		    <div class="input-row">
-			<label for="dao">Descending Aorta:</label>
-			<input type="number" name="dao" id="dao" class="cpmInput" min="0" step="0.01" title='numbers only, up to two decimal places' />
+			<label for="qrsdf">QRSDF ("QRSD Vector"):</label>
+			<input type="number" name="qrsdf" id="qrsdf" class="cpmInput" min="0" step="0.01" title='numbers only, up to two decimal places' />
+		    </div>
+		    <div class="input-row">
+			<label for="hfla">HFLA ("LAS Vector"):</label>
+			<input type="number" name="hfla" id="hfla" class="cpmInput" min="0" step="0.01" title='numbers only, up to two decimal places' />
+		    </div>
+		    <div class="input-row">
+			<label for="rms40">RMS40 ("RMS40 Vector"):</label>
+			<input type="number" name="rms40" id="rms40" class="cpmInput" min="0" step="0.01" title='numbers only, up to two decimal places' />
 		    </div>
 		    <div data-role="fieldcontain">
 			<input type="button" value="Update" />

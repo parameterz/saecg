@@ -1,2 +1,7 @@
-# saecg
-gender specific, age-adjusted z-scores for SAECG's (signal averaged ECG)
+saecg z-scores
+==============
+
+A JavaScript implementation of []
+
+View/use it here:
+http://parameterz.github.io/saecg

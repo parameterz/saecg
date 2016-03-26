@@ -234,40 +234,15 @@
         var ht, wt, bsa;
         ht = parseFloat($('#ht').val());
         wt = parseFloat($('#wt').val());
-        ca_sc = parseFloat($('#ca_sc').val());
-        isthmus = parseFloat($('#isthmus').val());
-        dao = parseFloat($('#dao').val());
-        //do the ratioes
+
+        //calc bsa
         if( !isNaN(ht) && !isNaN(wt) ){
             bsa = math.sqrt(ht*wt/3600);
             $('#bsa').text(bsa.toFixed(3));
         } else {
             $('#bsa').text('---');
         }
-        if( !isNaN(dt) && !isNaN(ca_sc) ){
-            ratio2 = dt/ca_sc;
-            $('#dt_ca_sc').text(ratio2.toFixed(3));
-        } else {
-            $('#dt_ca_sc').text('---');
-        }
-        if( !isNaN(isthmus) && !isNaN(dao) ){
-            ratio3 = isthmus/dao;
-            $('#isthmus_dao').text(ratio3.toFixed(3));
-        } else {
-            $('#isthmus_dao').text('---');
-        }
-        // calculate the main model/probability
-        if( !isNaN(ratio1) && !isNaN(ratio2) && !isNaN(ratio3) ){
-            probability = 1 + Math.exp( - (-2.02 + 12.5 * ratio1 - 9.8 * ratio3 - 0.601 * ratio2 ));
-            probability = Math.pow(probability, -1);
-            $('#probability').text( (100 * probability).toFixed(2) + '%');
-            makeInterpretation(probability);
-        } else {
-            $('#probability').text('---');
-            makeInterpretation(-1);
-            
-        }
-
+        
     }
 </script>
 <script type="text/javascript">

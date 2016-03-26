@@ -167,10 +167,13 @@
 			<label for="qrsdu">QRSDU:</label>
 			<input type="number" name="ca_sc" id="ca_sc" class="cpmInput" min="0" step="0.01" title='numbers only, up to two decimal places' />
 		    </div>
-		    <div class="input-row">
-			<label for="isthmus">Isthmus:</label>
-			<input type="number" name="qrsdu" id="qrsdu" class="cpmInput" min="0" step="0.01" title='numbers only, up to two decimal places' />
-		    </div>
+		    <fieldset data-role="controlgroup" data-type="horizontal">
+		        <legend>Gender:</legend>
+		        <input type="radio" name="gender" id="m" value="m" checked="checked">
+		        <label for="m">Male</label>
+		        <input type="radio" name="gender" id="f" value="off">
+		        <label for="f">Female</label>
+		    </fieldset>
 		    <div class="input-row">
 			<label for="qrsdf">QRSDF ("QRSD Vector"):</label>
 			<input type="number" name="qrsdf" id="qrsdf" class="cpmInput" min="0" step="0.01" title='numbers only, up to two decimal places' />

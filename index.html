@@ -202,6 +202,7 @@
 		<h3>Results</h3>
                 <h4>BSA: <span id="bsa"></span></h4>
                 <h4>QRSDU Z: <span id="qrsdu-z"></span></h4>
+                <h4>QRSDF Z: <span id="qrsdf-z"></span></h4>
 
 	    </div>
 	</div>
@@ -232,11 +233,12 @@
     
 
     function calcAll(){
-        var ht, wt, gender, bsa, qrsdu, qrsduz;
+        var ht, wt, gender, bsa, qrsdu, qrsduz, qrsdf, qrsdfz;
         ht = parseFloat($('#ht').val());
         wt = parseFloat($('#wt').val());
         gender = + $('input[name=gender]:checked').val();
-        qrsdu = parseFloat($('#qrsdu').val())
+        qrsdu = parseFloat($('#qrsdu').val());
+        qrsdf = parseFloat($('#qrsdf').val());
 
 
         //calc bsa
@@ -254,7 +256,14 @@
         } else {
         	$('#qrsdu-z').text('---');
         }
-        
+        //qrsdf
+        if( !isNaN(bsa) && !isNaN(qrsdf) ){
+	        qrsdfz = gender * -3.98 + bsa * 7.48 + 97.1; //mean
+	        qrsduz = ( qrsdf - qrsdfz ) / 5.88;
+	        $('#qrsdf-z').text(qrsdfz.toFixed(2));
+        } else {
+        	$('#qrsdf-z').text('---');
+        }        
         
         
         

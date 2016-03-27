@@ -279,9 +279,9 @@
         }
         //rms40
         if( !isNaN(bsa) && !isNaN(rms40) ){
-        rms40z = gender * 0.31 + bsa * -0.6 + 4.7; //mean
-        rms40z = ( Math.log(rms40) - rms40z ) / 0.44;
-        $('#rms40-z').text(rms40z.toFixed(2));
+	        rms40z = gender * 0.31 + bsa * -0.6 + 4.7; //mean
+	        rms40z = ( Math.log(rms40) - rms40z ) / 0.44;
+	        $('#rms40-z').text(rms40z.toFixed(2));
         } else {
         	$('#rms40-z').text('---');
         }

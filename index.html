@@ -259,7 +259,7 @@
         //qrsdf
         if( !isNaN(bsa) && !isNaN(qrsdf) ){
 	        qrsdfz = gender * -3.98 + bsa * 7.48 + 97.1; //mean
-	        qrsduz = ( qrsdf - qrsdfz ) / 5.88;
+	        qrsdfz = ( qrsdf - qrsdfz ) / 5.88;
 	        $('#qrsdf-z').text(qrsdfz.toFixed(2));
         } else {
         	$('#qrsdf-z').text('---');

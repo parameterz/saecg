@@ -200,10 +200,10 @@
 	<div class="ui-block-b">
 	    <div class="ui-body ui-body-d">
 		<h3>Results</h3>
-                <h4>BSA: <span id="bsa"></span></h4>
-                <h4>QRSDU Z: <span id="qrsdu-z"></span></h4>
-                <h4>"QRSD Vector" Z: <span id="qrsdf-z"></span></h4>
-                <h4>"LAS Vector" Z: <span id="hfla-z"></span></h4>
+                <h4>BSA: <span id="bsa" class="results"></span></h4>
+                <h4>QRSDU Z: <span id="qrsdu-z" class="results"></span></h4>
+                <h4>"QRSD Vector" Z: <span id="qrsdf-z" class="results"></span></h4>
+                <h4>"LAS Vector" Z: <span id="hfla-z" class="results"></span></h4>
 
 	    </div>
 	</div>
@@ -294,8 +294,8 @@
         
         //and when reset
         $("input[type='reset']").bind("click", function() {
-            $('#probability,.ratio').text('---');
-	    $('#interpretation').text('');
+            $('.results').text('---');
+	    
         });
 </script>
 

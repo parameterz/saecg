@@ -235,7 +235,7 @@
         var ht, wt, gender, bsa, qrsdu, qrsduz;
         ht = parseFloat($('#ht').val());
         wt = parseFloat($('#wt').val());
-        gender = $('gender').val();
+        gender = + $('gender').val();
         qrsdu = parseFloat($('#qrsdu').val())
 
 
@@ -249,7 +249,7 @@
         //qrsdu
         if( !isNaN(bsa) && !isNaN(qrsdu) ){
 	        qrsduz = gender * -3.19 + bsa * 13.82 + 60.18; //mean
-	        qrsduz += ( qrsdu - qrsduz ) / 6.55;
+	        qrsduz = ( qrsdu - qrsduz ) / 6.55;
 	        $('#qrsdu-z').text(qrsduz.toFixed(2));
         } else {
         	$('#qrsdu-z').text('---');

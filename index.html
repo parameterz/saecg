@@ -204,6 +204,7 @@
                 <h4>QRSDU Z: <span id="qrsdu-z" class="results"></span></h4>
                 <h4>"QRSD Vector" Z: <span id="qrsdf-z" class="results"></span></h4>
                 <h4>"LAS Vector" Z: <span id="hfla-z" class="results"></span></h4>
+                <h4>"RMS40 Vector" Z: <span id="rms40-z" class="results"></span></h4>
 
 	    </div>
 	</div>
@@ -234,13 +235,14 @@
     
 
     function calcAll(){
-        var ht, wt, gender, bsa, qrsdu, qrsduz, qrsdf, qrsdfz, hfla, hflaz;
+        var ht, wt, gender, bsa, qrsdu, qrsduz, qrsdf, qrsdfz, hfla, hflaz, rms40, rms40z;
         ht = parseFloat($('#ht').val());
         wt = parseFloat($('#wt').val());
         gender = + $('input[name=gender]:checked').val();
         qrsdu = parseFloat($('#qrsdu').val());
         qrsdf = parseFloat($('#qrsdf').val());
         hfla = parseFloat($('#hfla').val());
+        rms40 = parseFloat($('#rms40').val());
 
 
         //calc bsa
@@ -273,6 +275,14 @@
 	        $('#hfla-z').text(hflaz.toFixed(2));
         } else {
         	$('#hfla-z').text('---');
+        }
+        //rms40
+        if( !isNaN(bsa) && !isNaN(rms40) ){
+        rms40z = gender * 0.31 + bsa * -0.6 + 4.7; //mean
+        rms40z = ( Math.log(rms40) - rms40z ) / 0.44;
+        $('#rms40-z').text(rms40z.toFixed(2));
+        } else {
+        	$('#rms40-z').text('---');
         }
         
         

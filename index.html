@@ -203,6 +203,7 @@
                 <h4>BSA: <span id="bsa"></span></h4>
                 <h4>QRSDU Z: <span id="qrsdu-z"></span></h4>
                 <h4>"QRSD Vector" Z: <span id="qrsdf-z"></span></h4>
+                <h4>"LAS Vector" Z: <span id="hfla-z"></span></h4>
 
 	    </div>
 	</div>
@@ -233,12 +234,13 @@
     
 
     function calcAll(){
-        var ht, wt, gender, bsa, qrsdu, qrsduz, qrsdf, qrsdfz;
+        var ht, wt, gender, bsa, qrsdu, qrsduz, qrsdf, qrsdfz, hfla, hflaz;
         ht = parseFloat($('#ht').val());
         wt = parseFloat($('#wt').val());
         gender = + $('input[name=gender]:checked').val();
         qrsdu = parseFloat($('#qrsdu').val());
         qrsdf = parseFloat($('#qrsdf').val());
+        hfla = parseFloat($('#hfla').val());
 
 
         //calc bsa
@@ -264,7 +266,14 @@
         } else {
         	$('#qrsdf-z').text('---');
         }        
-        
+        //hfla
+        if( !isNaN(bsa) && !isNaN(hfla) ){
+	        hflaz = gender * 0 + bsa * 3.55 + 19.03; //mean
+	        hflaz = ( hfla - hflaz ) / 6.12;
+	        $('#hfla-z').text(hflaz.toFixed(2));
+        } else {
+        	$('#hfla-z').text('---');
+        }
         
         
         

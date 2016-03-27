@@ -248,7 +248,7 @@
 
         //calc bsa
         if( !isNaN(ht) && !isNaN(wt) ){
-            bsa = Math.sqrt(ht*wt/3600);
+            bsa = Math.sqrt(ht*wt/3600); //Mosteller
             $('#bsa').text(bsa.toFixed(3));
         } else {
             $('#bsa').text('---');

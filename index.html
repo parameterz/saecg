@@ -36,6 +36,24 @@
 	p.advice {
 	    display: none;
 	}
+	blockquote {
+		background: #f9f9f9;
+		border-left: 10px solid #ccc;
+		margin: 1.5em 10px;
+		padding: 0.5em 10px;
+		quotes: "\201C""\201D""\2018""\2019";
+	}
+	blockquote:before {
+	  color: #ccc;
+	  content: open-quote;
+	  font-size: 4em;
+	  line-height: 0.1em;
+	  margin-right: 0.25em;
+	  vertical-align: -0.4em;
+	}
+	blockquote p {
+	  display: inline;
+	}
 	#footer {
 	    border-top: thin solid #777;
 	    margin-top: 3em;
@@ -141,12 +159,8 @@
 <div data-role="content" class="jqm-content">
 <h1 class="title">Signal-Averaged ECG Z-Scores</h1>
 
-<h2 class="subtitle">subtitle</h2>
+<h2 class="subtitle">Gender-specific BSA-adjusted z-scores of various signal-averaged ECG measurements.</h2>
 <a href="https://github.com/parameterz/saecg"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
-<p>Gender-specific BSA-adjusted z-scores of various signal-averaged ECG measurements.</p>
-<p>Based on the 1996 manuscript, 
-<a href="http://www.ncbi.nlm.nih.gov/pubmed/8734746">Normal values for the childhood signal-averaged ECG</a>.</p>
-
 
     <div class="rwd-example">
     
@@ -173,21 +187,32 @@
 			<label for="wt">Weight (kg):</label>
 			<input type="number" name="wt" id="wt" class="cpmInput" min="0" step="0.01" title='numbers only, up to two decimal places' />
 		    </div>
+			<div class="input-row">
+				<h4>BSA: <span id="bsa" class="results"></span></h4>
+			</div>
 		    <div class="input-row">
-			<label for="qrsdu">QRSDU:</label>
-			<input type="number" name="qrsdu" id="qrsdu" class="cpmInput" min="0" step="0.01" title='numbers only, up to two decimal places' />
+				<H4>QRS Duration (unfiltered)</H4>
+				<label for="qrsdu">(msec):</label>
+				<input type="number" name="qrsdu" id="qrsdu" class="cpmInput" min="0" step="0.01" title='numbers only, up to two decimal places' />
+				<p>Z-Score: <span id="qrsdu-z" class="results"></span></p>
 		    </div>
 		    <div class="input-row">
-			<label for="qrsdf">QRSDF ("QRSD Vector"):</label>
-			<input type="number" name="qrsdf" id="qrsdf" class="cpmInput" min="0" step="0.01" title='numbers only, up to two decimal places' />
+				<h4>QRS Duration (filtered)</h4>
+				<label for="qrsdf">(msec):</label>
+				<input type="number" name="qrsdf" id="qrsdf" class="cpmInput" min="0" step="0.01" title='numbers only, up to two decimal places' />
+				<p>Z-Score: <span id="qrsdf-z" class="results"></span></p>
 		    </div>
 		    <div class="input-row">
-			<label for="hfla">HFLA ("LAS Vector"):</label>
-			<input type="number" name="hfla" id="hfla" class="cpmInput" min="0" step="0.01" title='numbers only, up to two decimal places' />
+				<h4>High Frequency/Low Amplitude</h4>
+				<label for="hfla">(msec):</label>
+				<input type="number" name="hfla" id="hfla" class="cpmInput" min="0" step="0.01" title='numbers only, up to two decimal places' />
+				<p>Z-Score: <span id="hfla-z" class="results"></span></p>
 		    </div>
 		    <div class="input-row">
-			<label for="rms40">RMS40 ("RMS40 Vector"):</label>
-			<input type="number" name="rms40" id="rms40" class="cpmInput" min="0" step="0.01" title='numbers only, up to two decimal places' />
+				<h4>RMS40</h4>
+				<label for="rms40">(&micro;V):</label>
+				<input type="number" name="rms40" id="rms40" class="cpmInput" min="0" step="0.01" title='numbers only, up to two decimal places' />
+				<p>Z-Score: <span id="rms40-z" class="results"></span></p>
 		    </div>
 		    <div data-role="fieldcontain">
 			<input type="button" value="Update" />
@@ -200,12 +225,9 @@
 	<!-- secondary block #1 -->
 	<div class="ui-block-b">
 	    <div class="ui-body ui-body-d">
-		<h3>Results</h3>
-                <h4>BSA: <span id="bsa" class="results"></span></h4>
-                <h4>QRSDU Z: <span id="qrsdu-z" class="results"></span></h4>
-                <h4>"QRSD Vector" Z: <span id="qrsdf-z" class="results"></span></h4>
-                <h4>"LAS Vector" Z: <span id="hfla-z" class="results"></span></h4>
-                <h4>"RMS40 Vector" Z: <span id="rms40-z" class="results"></span></h4>
+		<h3>Discussion</h3>
+			<blockquote><p>In children 5-15 years of age, both gender and BSA need to be taken into account when interpreting the SAEGG.</p></blockquote>
+			<p>Z-scores between -2 and +2 are considered normal; greater than 2 (or less than -2) are considered abnormal.</p>
 
 	    </div>
 	</div>
@@ -214,7 +236,12 @@
 	<div class="ui-block-c">
 	    <div class="ui-body ui-body-d">
 		<h4>Info</h4>
-		<p>A Z-score of 2 or more is considered abnormal.</p>
+		<p>
+			<span class="cite-title"><a href="http://www.ncbi.nlm.nih.gov/pubmed/8734746">Normal values for the childhood signal-averaged ECG</a>.</span class="cite-title">
+			<span class="cite-authors">Davis AM, McCrindle BW, Hamilton RM, Moore-Coleman P, Gow RM.</span class="cite-authors">
+			<span class="cite-journal">Pacing Clin Electrophysiol. 1996 May;19(5):793-801.</span class="cite-journal">
+		</p>
+
 	    </div>
 	</div>
     
@@ -232,7 +259,7 @@
 </div><!-- /page -->
 <script type="text/javascript">
     //updated on
-    var updatedOn = '26 Mar 2016';
+    var updatedOn = '27 Mar 2016';
     
 
     function calcAll(){

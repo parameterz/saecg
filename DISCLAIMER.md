@@ -1,10 +1,12 @@
+#Disclaimer
+
 No advice
 ---
 This website contains general information about medical conditions and treatments.  The information is not advice, and should not be treated as such.
 
 Limitation of warranties
 ---
-The medical information on this website is provided ìas isî without any representations or warranties, express or implied.  Dan Dyar makes no representations or warranties in relation to the medical information on this website.  
+The medical information on this website is provided ‚Äúas is‚Äù without any representations or warranties, express or implied.  Dan Dyar makes no representations or warranties in relation to the medical information on this website.  
 
 Without prejudice to the generality of the foregoing paragraph, Dan Dyar does not warrant that:
 
